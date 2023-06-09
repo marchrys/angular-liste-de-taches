@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/liste-de-taches",
+            "outputPath": "dist/liste-de-taches/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -97,6 +97,61 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/liste-de-taches/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "liste-de-taches:build:development",
+              "serverTarget": "liste-de-taches:server:development"
+            },
+            "production": {
+              "browserTarget": "liste-de-taches:build:production",
+              "serverTarget": "liste-de-taches:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "liste-de-taches:build:production",
+              "serverTarget": "liste-de-taches:server:production"
+            },
+            "development": {
+              "browserTarget": "liste-de-taches:build:development",
+              "serverTarget": "liste-de-taches:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
