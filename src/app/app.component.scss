@@ -1,0 +1,28 @@
+.app-title {
+    margin-left: 20px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .toolbar-button {
+      display: none;
+    }
+
+    .mobile-menu {
+      display: block;
+    }
+}
+  
+  
+  
+  
+  
+  
+  
