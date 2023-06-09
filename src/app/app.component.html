@@ -1,23 +1,2 @@
-<mat-toolbar color="primary">
-  <mat-icon>checklist</mat-icon>
-  <span class="app-title"> 
-    Ma liste de tâches
-  </span>
-  <span class="spacer"></span> <!-- Espace flexible pour aligner les éléments -->
- 
-  <button mat-button class="toolbar-button" *ngFor="let item of menuItems" [routerLink]="item.link">
-    <mat-icon>{{ item.icon }}</mat-icon>
-    {{ item.label }}
-  </button>
-
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item *ngFor="let item of menuItems" [routerLink]="item.link">
-      <mat-icon>{{ item.icon }}</mat-icon>
-      {{ item.label }}
-    </button>
-  </mat-menu>
-
-  <button mat-icon-button class="mobile-menu" [matMenuTriggerFor]="menu">
-    <mat-icon>menu</mat-icon>
-  </button>
-</mat-toolbar>
+<app-toolbar></app-toolbar>
+<main>blah blah</main>
