@@ -15,8 +15,12 @@
 
     <mat-form-field class="example-full-width">
         <mat-label>Votre mot de passe</mat-label>
-        <input matInput type="password" placeholder="Entrez votre mot de passe" name="pass" [(ngModel)]="pass">
+        <input matInput [type]="passVisible ? 'text' : 'password'" placeholder="Entrez votre mot de passe" name="pass" [(ngModel)]="pass">
+        <button mat-icon-button matSuffix (click)="togglePassVisibility()">
+            <mat-icon>{{ passVisible ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
     </mat-form-field>
+    
     <p class="text-danger" *ngIf="errors.pass">
         Le mot de passe doit contenir au moins huit caractères (des lettres majuscules et minuscules, 
         des chiffres et des caractères spéciaux)
@@ -26,3 +30,4 @@
 </form>
 <p>password: {{ pass}}</p>
 <p>{{ errors | json }}</p>
+<p>hasErrors: {{ hasErrors }}</p>
