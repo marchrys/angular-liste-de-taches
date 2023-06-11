@@ -7,13 +7,17 @@ import { Component } from '@angular/core';
 })
 export class SigninComponent {
   public email: string = '';
+  public pass: string = '';
   public errors: any = {
-    email: false
+    email: false,
+    pass: false
   };
   private validEmailRegex: RegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  private validPassRegex: RegExp = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/;
 
   public onSubmit() {
     this.email.match(this.validEmailRegex) ? this.errors.email = false : this.errors.email = true;
+    this.pass.match(this.validPassRegex) ? this.errors.pass = false : this.errors.pass = true;
 
     console.log(Object.values(this.errors).every((value: any) => value === false));
   }
