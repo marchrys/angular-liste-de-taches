@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class ToolbarComponent {
   menuItems: MenuItem[] = [
-    {label: 'S\'inscrire', icon: 'person_add', link:''},
+    {label: 'S\'inscrire', icon: 'person_add', link:'signin'},
     {label: 'Se connecter', icon: 'login', link:''}
   ];
 }

@@ -38,9 +38,27 @@ $liste-de-taches-theme: mat.define-light-theme((
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+main {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
 footer{
   position:fixed;
   bottom:0px;
+  color: white;
   background-color:#3F51B5;
   width:100%;
+  padding: 20px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.text-danger {
+  color: red;
+  font-weight: bold;
 }
